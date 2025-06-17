@@ -11,5 +11,5 @@ runs:
     - run: pip install requests
       shell: bash
 
-    - run: python ${{ github.action_path }}/link_validator.py ${{ inputs.path }}
+    - run: python ${{ github.action_path }}/linksentinel/link_validator.py ${{ inputs.path }}
       shell: bash

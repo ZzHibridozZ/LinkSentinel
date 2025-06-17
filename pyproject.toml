@@ -1,24 +1,24 @@
-[project]
+[tool.poetry]
 name = "linksentinel"
 version = "0.1.0"
 description = "CLI tool and GitHub Action to check broken links in documentation files"
-authors = [
-    {name = "Mikel Sanchez",email = "nottherealwallyx@gmail.com"}
-]
+authors = ["Mikel Sanchez <nottherealwallyx@gmail.com>"]
 readme = "README.md"
-requires-python = "^3.9"
-dependencies = [
-    "requests (>=2.32.4,<3.0.0)"
-]
 
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.dependencies]
+python = ">=3.9"
+requests = ">=2.32.4,<3.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.0"
 isort = "^6.0.1"
 black = "^25.1.0"
 pre-commit = "^4.2.0"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
