@@ -1,10 +1,6 @@
 name: Link Sentinel Check
 
-on:
-  push:
-    paths:
-      - '**/*.md'
-      - '**/*.rst'
+on: push
 
 jobs:
   validate-links:
