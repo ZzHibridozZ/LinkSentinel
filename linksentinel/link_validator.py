@@ -1,13 +1,14 @@
 import argparse
 import re
 from pathlib import Path
+from typing import Any, Dict, List, Tuple
 
 import requests
 
 REQUEST_TIMEOUT = 5
 
 
-def find_links_in_file(filepath):
+def find_links_in_file(filepath: str) -> List[str]:
     links = []
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
@@ -21,7 +22,7 @@ def find_links_in_file(filepath):
     return links
 
 
-def check_link(url):
+def check_link(url: str) -> Tuple[bool, int | str]:
     try:
         response = requests.head(url, allow_redirects=True, timeout=REQUEST_TIMEOUT)
         if response.status_code >= 400:
@@ -31,7 +32,7 @@ def check_link(url):
         return False, str(e)
 
 
-def scan_directory(directory):
+def scan_directory(directory: str) -> List[Dict[str, Any]]:
     broken_links = []
     for filepath in Path(directory).rglob("*"):
         if filepath.suffix.lower() in [".md", ".rst"]:
@@ -45,7 +46,7 @@ def scan_directory(directory):
     return broken_links
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         description="Validate links in .md and .rst files."
     )
