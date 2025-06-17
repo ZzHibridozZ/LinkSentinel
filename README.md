@@ -21,7 +21,7 @@ python link_validator.py ./docs
 ### As GitHub Action
 
 ```yaml
-uses: your-username/LinkSentinel@v1.0.0
+uses: NotTheRealWallyx/LinkSentinel@v1.0.0
 with:
   path: './docs'
 ```
