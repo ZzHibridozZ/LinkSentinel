@@ -18,10 +18,16 @@ pip install requests
 python link_validator.py ./docs
 ```
 
+Or, if installed as a package or running from the project root:
+
+```bash
+python -m linksentinel ./docs
+```
+
 ### As GitHub Action
 
 ```yaml
-uses: your-username/LinkSentinel@v1.0.0
+uses: NotTheRealWallyx/LinkSentinel@v1.0.0
 with:
   path: './docs'
 ```

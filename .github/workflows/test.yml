@@ -1,9 +1,9 @@
-name: Link Sentinel Check
+name: Test
 
 on: push
 
 jobs:
-  validate-links:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,5 +19,5 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run LinkSentinel
-        run: poetry run python -m linksentinel .
+      - name: Run tests
+        run: poetry run pytest
