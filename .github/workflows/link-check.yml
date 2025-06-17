@@ -27,5 +27,5 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run LinkSentinel
-        run: poetry run python link_validator.py .
+      - name: Run tests
+        run: poetry run pytest
