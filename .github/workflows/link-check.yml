@@ -1,0 +1,27 @@
+name: Link Sentinel Check
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - '**/*.rst'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '**/*.rst'
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run LinkSentinel
+        run: python link_validator.py .
