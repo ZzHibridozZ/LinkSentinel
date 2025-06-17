@@ -2,11 +2,11 @@ name: LinkSentinel
 description: Validate links in Markdown and reStructuredText docs
 inputs:
   path:
-    description: 'Directory to scan for links'
+    description: "Directory to scan for links"
     required: false
-    default: '.'
+    default: "."
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - run: pip install requests
       shell: bash
