@@ -1,9 +1,8 @@
-import os
-import re
-import requests
 import argparse
+import re
 from pathlib import Path
 
+import requests
 
 REQUEST_TIMEOUT = 5
 
@@ -17,7 +16,7 @@ def find_links_in_file(filepath):
         links.extend(md_links)
 
         rst_links = re.findall(r"`[^`<]*<((http[s]?://[^>]*)?)>`_", content)
-        links.extend(rst_links)
+        links.extend([match[0] for match in rst_links])
 
     return links
 
